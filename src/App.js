@@ -1,24 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import Comment from './components/comment';
+import Header from './components/header';
+import List from './components/list';
+import Content from './components/content';
+import styled from 'styled-components';
+
+const Section = styled.section`
+  width: 100%;
+  margin: 0;
+  padding: .5rem 10% 1rem 10%;
+`
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Header />
+    <Section>
+      <Content />
+      <List />
+      <Comment />
+    </Section>
+  </>
   );
 }
 
