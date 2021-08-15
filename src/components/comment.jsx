@@ -22,7 +22,6 @@ color: #fff;
 outline: none;
 cursor: pointer;
 background-color: #f46496;
-transition: all 0.3s;
 
 `
 

@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import List from '../components/list';
-import {toggle} from '../modules/comment';
+import {toggle ,remove} from '../modules/comment';
 
-const ListContainer = ({commentList, toggle}) => {
+const ListContainer = ({commentList, toggle,remove}) => {
     return(
-        <List list={commentList} ontoggle={toggle}/>
+        <List list={commentList} ontoggle={toggle} onremove={remove}/>
     )
 }
 const mapStateToProps = state => ({ 
@@ -15,4 +15,4 @@ const mapStateToProps = state => ({
 
 
 export default connect  (mapStateToProps,
-   { toggle })(ListContainer);
+   { toggle , remove})(ListContainer);
