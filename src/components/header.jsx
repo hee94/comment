@@ -6,10 +6,10 @@ const Headerstyle = styled.header`
     width : 100% ;
     background-color: #f46496;
     margin : 0;
-    padding : 1rem;
+    padding : .8rem;
 `
 const Titile = styled.h1`
-        margin: 0 0 0 2rem;
+        margin: 0 0 0 3rem;
         color:#fff;
 `
 

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Li = styled.li`
-    width: 93.5%;
+    
     list-style: none;
     margin : 0;
     padding: 1rem;
@@ -10,18 +10,26 @@ const Li = styled.li`
     display:flex;
     justify-content: space-between;
 `
-// const LikeBtn = styled.img`
-// 프롭을 받아서 그걸로 display나 src값을 바꿔주면 될듯 커서포인트
-// `
-
-const ListCommnet = ({list}) => {
-
-    const {text, user} = list;
+const Likebtn = styled.img`
+    width: 20px;
+    cursor: pointer;
+`
+//src={like ? "img/onheart.png" : "img/heart.png"}
+const ListCommnet = ({list, ontoggle}) => {
+    console.log(list.like)
+    const {text, user, like, onupdate, onremove} = list;
+    const onclick =(e)=>{
+     ontoggle(list.id);
+       
+    }
     return(   
     <Li>
         <span>{user}</span>
         <span>{text}</span>
-        <img src="img/heart.png" alt="좋아요" width="20px" /> 
+        <Likebtn src={like ? "img/onheart.png" : "img/heart.png"}  alt="좋아요" onheart={like} onClick={onclick} /> 
+        {
+            onremove && <button> 삭제 </button> 
+        }
          
      </Li> )
 }

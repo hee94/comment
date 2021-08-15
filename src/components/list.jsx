@@ -7,11 +7,11 @@ const Ullist = styled.ul`
     padding: 0;
 `
 
-const List = ({list}) => {
-    console.log(list)
+const List = ({list, ontoggle}) => {
+   
     return(
         <Ullist>
-            {list.map(list => ( <ListCommnet list={list} key={list.id} /> ))}  
+            {list.map(list => ( <ListCommnet list={list} key={list.id} ontoggle={ontoggle} /> ))}  
         </Ullist>
     )
 }

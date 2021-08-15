@@ -1,8 +1,8 @@
 const CHANGE_INPUT = 'CHANGE_INPUT';
 const INSERT = 'INSERT';
-const TOGGLE = 'TOGGLE';
 const REMOVE = 'REMOVE';
 const UPDATE = 'UPDATE';
+const TOGGLE = 'TOGGLE';
 
 export const changeInput = (input) =>({
     type: CHANGE_INPUT,
@@ -78,7 +78,7 @@ const commentlist =(state = initState, action)=>{
         case TOGGLE :
             return{
                 ...state,
-                commentList: state.commentList.map(list => list.id === action.id?{...list, like: !list.like} : list)
+                commentList: state.commentList.map(list => list.id === action.id ? {...list, like: !list.like} : list)
             };
         case REMOVE :
                 return{
