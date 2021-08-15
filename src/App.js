@@ -1,10 +1,9 @@
 import './App.css';
-import Comment from './components/comment';
 import Header from './components/header';
-import List from './components/list';
+import ListContainer from './containers/listContainer';
 import Content from './components/content';
 import styled from 'styled-components';
-
+import CommnetContainer from './containers/commnetContainer';
 const Section = styled.section`
   width: 100%;
   margin: 0;
@@ -17,8 +16,8 @@ function App() {
     <Header />
     <Section>
       <Content />
-      <List />
-      <Comment />
+      <ListContainer />
+      <CommnetContainer />
     </Section>
   </>
   );

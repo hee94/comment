@@ -7,10 +7,11 @@ const Ullist = styled.ul`
     padding: 0;
 `
 
-const List = (props) => {
+const List = ({list}) => {
+    console.log(list)
     return(
         <Ullist>
-            <ListCommnet />
+            {list.map(list => ( <ListCommnet list={list} key={list.id} /> ))}  
         </Ullist>
     )
 }

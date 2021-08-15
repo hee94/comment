@@ -4,7 +4,7 @@ const TOGGLE = 'TOGGLE';
 const REMOVE = 'REMOVE';
 const UPDATE = 'UPDATE';
 
-export const changeInput = input =>({
+export const changeInput = (input) =>({
     type: CHANGE_INPUT,
     input
 });
@@ -46,14 +46,15 @@ const initState ={
         },
         {
             id:2,
-            user: 'ming',
+            user: 'Ursula',
             text: '이브이 진화 뭐로 시킬지 고민됩니다ㅠㅠ',
             like: false,
             onupdate : false,
             onremove : false,
         },
         {
-            id:'natasha',
+            id: 3,
+            user:'natasha',
             text: '좋은듯',
             like: false,
             onupdate : false,
@@ -79,12 +80,12 @@ const commentlist =(state = initState, action)=>{
                 ...state,
                 commentList: state.commentList.map(list => list.id === action.id?{...list, like: !list.like} : list)
             };
-            case REMOVE :
+        case REMOVE :
                 return{
                     ...state,
                     commentList: state.commentList.filter(list => list.id !== action.id)
                 };
-            case UPDATE :
+        case UPDATE :
                 return {
                     ...state,
 
