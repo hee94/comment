@@ -31,7 +31,10 @@ const UpdateComment = ({reset,onupdate,changeInput, updateId,changeComment,oninp
     }
     const onsubmit =(e)=>{
         e.preventDefault();
-        changeComment(oninput,updateId)
+        if(oninput === ''){
+            changeComment(onupdate,updateId)
+        }else {changeComment(oninput,updateId)}
+       
         changeInput('');
         reset('',0);
       
