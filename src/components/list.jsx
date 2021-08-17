@@ -7,11 +7,13 @@ const Ullist = styled.ul`
     padding: 0;
 `
 
-const List = ({list, ontoggle, onremove}) => {
+const List = ({list, ontoggle, onremove,onupdate ,updatetext }) => {
    
     return(
         <Ullist>
-            {list.map(list => ( <ListCommnet list={list} key={list.id} ontoggle={ontoggle} remove={onremove} /> ))}  
+            {list.map(list => ( <ListCommnet list={list} 
+            key={list.id} ontoggle={ontoggle} 
+            remove={onremove} update={onupdate} updateText={updatetext} /> ))}  
         </Ullist>
     )
 }

@@ -3,11 +3,17 @@ const INSERT = 'INSERT';
 const REMOVE = 'REMOVE';
 const UPDATE = 'UPDATE';
 const TOGGLE = 'TOGGLE';
+const CHANGE_COMMENT = 'CHANGE_COMMENT';
 
 export const changeInput = (input) =>({
     type: CHANGE_INPUT,
     input
 });
+
+export const changeComment =(text,id)=>({
+    type : CHANGE_COMMENT,
+    text,id
+})
 let i =4 ;
 export const insert =(text) =>({
     type: INSERT,
@@ -28,13 +34,15 @@ export const remove =id =>({
     type:REMOVE,
     id
 });
-export const update =id =>({
+export const update = (text,id) =>({
     type:UPDATE,
-    id
+    text, id
 });
 
 const initState ={
     input:'',
+    updateText: '',
+    updateId : 0,
     commentList : [
         {
             id:1,
@@ -87,10 +95,16 @@ const commentlist =(state = initState, action)=>{
                 };
         case UPDATE :
                 return {
-                    ...state,
-
+                   ...state,
+                   updateText : action.text,
+                   updateId : action.id,
                 }
-            default:
+        case  CHANGE_COMMENT :
+            return{
+                ...state,
+                commentList: state.commentList.map(list => list.id === action.id ? {...list, text: action.text} : list)
+            }
+        default:
                 return state;
     }
 }

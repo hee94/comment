@@ -45,19 +45,22 @@ margin: 0 3px;
     background-color: #f7c0c5;
 }
 `
-const ListCommnet = ({list, ontoggle, remove}) => {
-    console.log(list.like)
-    const {text, user, like, onupdate, onremove} = list;
+const ListCommnet = ({list, ontoggle, remove,update ,updateText}) => {
+   
+    const {text, user, like, onremove} = list;
     const onclick =(e)=>{
      ontoggle(list.id);
-       
     }
+ const updateClick =()=>{
+     update(text, list.id) 
+ }   
+
     return(   
     <Li>
         <UserName>{user}</UserName>
         <Text>{text}</Text>
         {
-            onremove && <Btnbox ><Button onClick={()=>remove(list.id)}> 삭제 </Button> <Button>수정</Button></Btnbox>
+        updateText === '' && onremove && <Btnbox ><Button onClick={()=>remove(list.id)}> 삭제 </Button> <Button onClick={updateClick}>수정</Button></Btnbox>
         }
          <Likebtn src={like ? "img/onheart.png" : "img/heart.png"}  alt="좋아요" onheart={like} onClick={onclick} /> 
          
